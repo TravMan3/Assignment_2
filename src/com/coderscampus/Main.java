@@ -14,15 +14,7 @@ public class Main {
 		
 		String answer = pickedInput.picNum(scanner,"Pick a number between 1 and 100");
 		Integer upgradedInput = Integer.parseInt(answer);
-		if (upgradedInput < 1 ) {
-			System.out.println("Please pick a higher number");
-			if (upgradedInput > 100) {
-				System.out.println("Please pick a lower number");
-			}
-		}else if (upgradedInput >= 1 && upgradedInput <= 100 && upgradedInput
-				!= randomNumber) {
-			System.out.println("You win");
-		}
+		
 		System.out.println(upgradedInput);
 		
 		
