@@ -9,29 +9,38 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
 		int randomNumber = random.nextInt(100) + 1;
-		System.out.println(randomNumber);
 		
-		PickNumber pickedInput = new PickNumber();
-		
-		//String answer = pickedInput.picNum(scanner,"Pick a number between 1 and 100");
+		PickNumber pickedInput = new PickNumber();	
+		Integer newNum = null;
 		
 		for(int i = 1; i <= 5; i++) {
-			String answer = pickedInput.picNum(scanner,"Pick a number between 1 and 100");
-			Integer newNum = pickedInput.reCreate(answer);
+			while(true) {
+				
+				String answer = pickedInput.picNum(scanner,"Pick a number between 1 and 100");
+				newNum = pickedInput.reCreate(answer);	
+				
+				if (newNum >= 1 && newNum <= 100) {
+					break;
+				} else {
+					System.out.println("\n" + "Your guess is not between 1 and "
+					+ "100, please try again");
+				}
+			}
 			if (newNum == randomNumber) {	
 				System.out.println("\n" + "You win!");
 				break;
 			}
-			Integer betweenCheck = pickedInput.oneHunCheck(newNum);
-			Integer checkOne = pickedInput.checkNum(betweenCheck, randomNumber);
-//			System.out.println("\n" + "You lose!");
-//			System.out.println("\n" + "The number to guess was: " + randomNumber);
-		}
+			if (i == 5) {
+				System.out.println("\n" + "You lose!");
+				System.out.println("\n" + "The number to guess was: " + randomNumber);
+				break;
+			}
+
+			if (newNum >=1 && newNum <=100) {
+				pickedInput.checkNum(newNum, randomNumber);
+			}
 		
 		
-		
-		
-		scanner.close();
 	}
-		
-}
+		scanner.close();
+	}}

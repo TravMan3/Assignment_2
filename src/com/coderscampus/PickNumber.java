@@ -14,14 +14,6 @@ public class PickNumber {
 		Integer upgradedInput = Integer.parseInt(a);
 		return upgradedInput;		
 	}
-	
-	Integer oneHunCheck (Integer check) {
-		if (check < 1 || check > 100) {
-			System.out.println("\n" + "Your guess is not between 1 and "
-					+ "100, please try again");			
-		}
-		return check;
-	}
 
 	Integer checkNum (Integer theNum, Integer random) {
 		if (theNum > random) {
